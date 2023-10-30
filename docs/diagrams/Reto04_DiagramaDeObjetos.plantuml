@@ -1,0 +1,115 @@
+@startuml Reto04_DiagramaDeObjetos
+
+object "VenezuelaVsColombia:Juego" as Juego
+
+Juego : Localidad = Chile
+Juego : Fecha = 01/11/2023
+Juego : Puntuacion= 3Sets(Vzla) a 1Sets(Col)
+
+
+object "RegistroVzla : Registro" as RegistroV
+
+RegistroV : TiempoMuerto = 2
+RegistroV : Faltas = 1
+RegistroV : OrdenDeSaque = 7-31-4-6-8-10
+
+object "RegistroCol : Registro" as RegistroC
+
+RegistroC : TiempoMuerto = 3
+RegistroC : Faltas = 25
+RegistroC : OrdenDeSque = 15-6-1-31-12-8
+
+object "Venezuela: Equipo" as Equipo1
+Equipo1 : Nombre = SaltoDelAngelCaido
+
+object "Colombia: Equipo" as Equipo2
+Equipo2 : Nombre = RioDeLos7Colores
+
+object "Cesar: Entrenador" as EntrenadorV
+
+EntrenadorV : Nombre = Cesar Farias
+EntrenadorV : telefono = 58 426 1234567
+EntrenadorV : Direccion = Caracas, Venezuela
+EntrenadorV : NivelDeAcreditacion = Experto Avanzado
+EntrenadorV : AñosDeExperiencia = 30
+
+object "Miguel: Jugador" as JugadorV1
+
+JugadorV1 : Nombre = Miguel Mendoza
+JugadorV1 : telefono = 58 424 2234588
+JugadorV1 : Direccion = Maracaibo, Venezuela
+JugadorV1 : Numero = 31
+JugadorV1 : Posicion = Libero
+JugadorV1 : Capitan = false
+
+object "Kervin: Jugador" as JugadorV2
+
+JugadorV2 : Nombre = Kervin Piñeda
+JugadorV2 : telefono = 58 416 7381131
+JugadorV2 : Direccion = Caracas, Venezuela
+JugadorV2 : Numero = 10
+JugadorV2 : Posicion = Rematador Central
+JugadorV2 : Capitan = true
+
+object "Francisco: Jugador" as JugadorV3
+
+JugadorV3 : Nombre = Francisco Limardo
+JugadorV3 : telefono = 58 412 5565521
+JugadorV3 : Direccion = Ciudad Bolivar, Venezuela
+JugadorV3 : Numero = 7
+JugadorV3 : Posicion = Armador
+JugadorV3 : Capitan = false
+
+object "Roberto: Entrenador" as EntrenadorC
+
+EntrenadorC : Nombre = Cesar Farias
+EntrenadorC : telefono = 57 310 8819222
+EntrenadorC : Direccion = Buenventura, Colombia
+EntrenadorC : NivelDeAcreditacion = Avanzado
+EntrenadorC : AñosDeExperiencia = 7
+
+object "Daniel: Jugador" as JugadorC1
+
+JugadorC1 : Nombre = Daniel Guttierez
+JugadorC1 : telefono = 57 310 6612345
+JugadorC1 : Direccion = Medellin, Colombia
+JugadorC1 : Numero = 15
+JugadorC1 : Posicion = Rematador Izquierdo
+JugadorC1 : Capitan = true
+
+object "Wilkerson: Jugador" as JugadorC2
+
+JugadorC2 : Nombre = Wilkerson Gaviria
+JugadorC2 : telefono = 57 310 8850012
+JugadorC2 : Direccion = Bogota, Colombia
+JugadorC2 : Numero = 1
+JugadorC2 : Posicion = Armador
+JugadorC2 : Capitan = false
+
+object "Felipe: Jugador" as JugadorC3
+
+JugadorC3 : Nombre = Felipe Contreras
+JugadorC3 : telefono = 57 310 1238971
+JugadorC3 : Direccion = Cali, Colombia
+JugadorC3 : Numero = 12
+JugadorC3 : Posicion = Libero
+JugadorC3 : Capitan = false
+
+Juego -right- Equipo2
+Equipo1 -right- Juego
+
+
+Equipo2 -u- RegistroC
+
+EntrenadorV -d- Equipo1
+JugadorV1 -r- Equipo1
+JugadorV2 -u- Equipo1
+JugadorV3 -u- Equipo1
+
+Equipo2 -u- EntrenadorC
+Equipo2 -r- JugadorC1
+Equipo2 -d- JugadorC2
+Equipo2 -d- JugadorC3
+
+
+Equipo1 -u- RegistroV

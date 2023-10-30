@@ -1,0 +1,53 @@
+@startuml  Reto4_DiagramaDeClases
+
+class Persona{
+    -Nombre: string
+    -Telefono: int
+    -Direccion: string
+}
+
+class Jugador{
+    -NumeroIdentificador: int
+    -Posicion: string
+    -Capitan: bool
+    {method} +Rematar():void
+    {method} +Bloquear():void
+    {method} +Pasar():void
+
+}
+
+class Entrenador{
+    -NivelDeAcreditacion: string
+    -AñosDeExperiencia: int
+    {method} +PedirTiempoMuerto():void
+    {method} +CambiarJugador():void
+}
+
+class Equipo{
+    -Nombre: string
+    -Registro: Registro
+
+}
+
+class Registro{
+    
+    -TiemposMuertos: int
+    -Faltas: int
+    -OrdenDeSaque: string
+}
+
+class Juego{
+    -Localidad: string
+    -Fecha: string
+    -Puntuacion: string
+}
+
+Persona <|-down- Entrenador
+Persona <|-down- Jugador
+Jugador "6..20" -down-o   "1" Equipo
+Entrenador "1"  -down-o   "*"Equipo
+
+Equipo "2" -right- "   * " Juego
+Equipo *-d- Registro
+
+@enduml
