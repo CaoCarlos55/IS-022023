@@ -62,7 +62,7 @@ JugadorV3 : Capitan = false
 
 object "Roberto: Entrenador" as EntrenadorC
 
-EntrenadorC : Nombre = Cesar Farias
+EntrenadorC : Nombre = Roberto Sesamo
 EntrenadorC : telefono = 57 310 8819222
 EntrenadorC : Direccion = Buenventura, Colombia
 EntrenadorC : NivelDeAcreditacion = Avanzado
@@ -99,17 +99,17 @@ Juego -right- Equipo2
 Equipo1 -right- Juego
 
 
-Equipo2 -u- RegistroC
+Equipo2 *-u- RegistroC
 
-EntrenadorV -d- Equipo1
-JugadorV1 -r- Equipo1
-JugadorV2 -u- Equipo1
-JugadorV3 -u- Equipo1
+EntrenadorV -d-o Equipo1
+JugadorV1 -r-o Equipo1
+JugadorV2 -u-o Equipo1
+JugadorV3 -u-o Equipo1
 
-Equipo2 -u- EntrenadorC
-Equipo2 -r- JugadorC1
-Equipo2 -d- JugadorC2
-Equipo2 -d- JugadorC3
+Equipo2 o-u- EntrenadorC
+Equipo2 o-r- JugadorC1
+Equipo2 o-d- JugadorC2
+Equipo2 o-d- JugadorC3
 
 
-Equipo1 -u- RegistroV
+Equipo1 *-u- RegistroV
