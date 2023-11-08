@@ -1,0 +1,50 @@
+@startuml Reto06_EjercicioH
+
+skinparam NoteBackgroundColor transparent
+skinparam NoteBorderColor transparent
+skinparam actorStyle awesome
+hide members
+allowmixing
+
+skinparam object{
+    BackgroundColor Lightpink\DeepSkyblue
+}
+
+skinparam actor{
+    BackgroundColor blue
+}
+object ":Registro" as Object1
+object ":Venta" as Object2
+object ":List" as Object3
+object ":CatalogoProducto" as Object4
+actor :User: as Men
+
+Men -r-> Object1
+note on link
+    1:crearNuevaVenta()
+    2:introducirArticulo(id,cant)
+    6:finalizarVenta()
+end note
+Object1 -r-> Object4
+note on link
+    3:getEspecificaciones(id)
+end note
+Object1 -d-> Object2
+note on link
+    4:crearLineaVenta(espec,cant)
+
+
+
+
+end note
+Object2 -r-> Object3
+note on link
+
+    5:añadir(new LineaVenta(espec,cant))
+end note
+
+
+
+
+
+@enduml

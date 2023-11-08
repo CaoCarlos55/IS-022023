@@ -1,0 +1,33 @@
+@startuml Reto06_EjercicioI
+
+
+scale 600 width 
+state VerificarUrgencia <<choice>>
+state verificadoUrgencia <<choice>>
+state finalSeparacion <<fork>>
+state finalUnion <<join>>
+ 
+skinparam state{
+    BackgroundColor LightSkyblue\mediumpurple
+}
+
+[*]-->ColocandoPedido : entregarPedido()
+ColocandoPedido-->ValidandoPedido: ValidarPedido()
+ValidandoPedido -->Cobrando: cobrarPago()
+Cobrando --> AdelantandoPago: pagar()
+AdelantandoPago --> ObteniendoProducto : obtenerProducto()
+ObteniendoProducto --> VerificarUrgencia: verificandoUrgencia()
+VerificarUrgencia --> EnviandoUrgentemente: SI
+VerificarUrgencia --> EnviandoOrdinariamente: NO
+EnviandoUrgentemente --> verificadoUrgencia
+EnviandoOrdinariamente --> verificadoUrgencia
+verificadoUrgencia --> TerminandoPedido: enviar()
+TerminandoPedido --> EntregandoCervezaALosTransportista : DarCervezaALosTransportista()
+EntregandoCervezaALosTransportista --> finalSeparacion
+finalSeparacion --> AñadiendoClienteALaListaDeSatisfechos: añadirClienteListaSatisfecho()
+finalSeparacion --> EnviandoRecibo : enviarRecibo()
+AñadiendoClienteALaListaDeSatisfechos --> finalUnion
+EnviandoRecibo --> finalUnion
+finalUnion --> [*]: finalizarPedido()
+
+@enduml
