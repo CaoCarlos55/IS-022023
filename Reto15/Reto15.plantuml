@@ -1,0 +1,49 @@
+@startuml Reto15
+skinparam ClassBackgroundColor white
+skinparam classAttributeIconSize 0
+hide circle
+
+
+class TurnOnDevices{
+   
+    +main(String[] args)
+    +turnOnDevices(Connetable device)
+}
+class Connectable{
+    status: boolean
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+
+class CoffeeMakerAdapter{
+    adaptee: CoffeeMaker
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+class Lamp{
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+class Computer{
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+class CoffeeMaker{
+    statusDevice: boolean
+    +on()
+    +off()
+    +isOff()
+}
+
+TurnOnDevices -r-> Connectable
+Connectable <|-- Lamp
+Connectable <|-- Computer
+Connectable <|-- CoffeeMakerAdapter
+CoffeeMakerAdapter -l-> CoffeeMaker
+
+
+@enduml
